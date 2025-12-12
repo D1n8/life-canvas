@@ -1,0 +1,19 @@
+:root {
+  --main-blue: #006EFF;
+  --main-gray: #d9d9d9;
+}
+
+body{
+  background-color: #000;
+  font-family: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.blue {
+  color: var(--main-blue);
+}

@@ -1,0 +1,11 @@
+header{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 1px solid var(--main-gray);
+}
+
+.header-container{
+    padding: 18px;
+    text-align: center;
+}
