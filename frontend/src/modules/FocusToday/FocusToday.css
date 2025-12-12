@@ -1,0 +1,5 @@
+.focus-today{
+    padding: 25px;
+    border: 1px solid var(--main-gray);
+    border-radius: 10px;
+}

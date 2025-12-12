@@ -1,0 +1,5 @@
+.textBox{
+    padding: 10px;
+    border: 1px solid var(--main-gray);
+    border-radius: 10px;
+}
