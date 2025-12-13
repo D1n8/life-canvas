@@ -1,0 +1,9 @@
+.moreVert{
+    border-radius: 50%;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.moreVert:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+}

@@ -1,0 +1,14 @@
+.focus-item{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.focus-item-more-menu{
+    position: absolute;
+}
+
+.focus-item-text{
+    width: max-content;
+}

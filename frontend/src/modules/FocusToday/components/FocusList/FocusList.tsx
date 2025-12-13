@@ -1,16 +1,13 @@
 import * as React from 'react';
 import './FocusList.css'
-import TextBox from '../../../../ui/TextBox/TextBox';
 import ButtonAdd from '../../../../ui/ButtonAdd/ButtonAdd';
+import FocusItem from '../FocusItem/FocusItem';
+import type { IFocusItem } from '../../types/models';
 
-type FocusItem = {
-    id: number,
-    title: string,
-    isCompleted: boolean
-}
+
 
 interface IFocusListProps {
-    list: FocusItem[],
+    list: IFocusItem[],
     openModal: () => void
 }
 
@@ -24,7 +21,7 @@ function FocusList({ list, openModal }: IFocusListProps) {
 
             <ul className='focus-list-container'>
                 {list.map(item =>
-                    <TextBox>{item.title}</TextBox>
+                    <FocusItem {...item}/>
                 )}
             </ul>
         </div>

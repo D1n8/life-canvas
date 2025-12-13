@@ -1,0 +1,13 @@
+.menu {
+    position: relative;
+    width: max-content;
+    padding: 10px;
+    border: 1px solid var(--main-gray);
+    background-color: black;
+}
+
+.menuOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+}
