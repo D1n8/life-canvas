@@ -10,4 +10,5 @@
     background-color: var(--main-blue);
     font-size: 17px;
     font-weight: bold;
+    cursor: pointer;
 }

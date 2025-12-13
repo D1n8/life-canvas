@@ -1,0 +1,6 @@
+.myBtn{
+    background-color: var(--main-blue);
+    padding: 10px;
+    border: 1px solid var(--main-blue);
+    border-radius: 4px;
+}

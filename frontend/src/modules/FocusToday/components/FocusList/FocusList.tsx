@@ -10,15 +10,16 @@ type FocusItem = {
 }
 
 interface IFocusListProps {
-    list: FocusItem[]
+    list: FocusItem[],
+    openModal: () => void
 }
 
-function FocusList({ list }: IFocusListProps) {
+function FocusList({ list, openModal }: IFocusListProps) {
     return (
         <div className="focus-list">
             <div className="focus-list-top">
                 <h2 className="focus-list-title">Фокус на <span className="blue">сегодня</span></h2>
-                <ButtonAdd />
+                <ButtonAdd openModal={openModal}/>
             </div>
 
             <ul className='focus-list-container'>
