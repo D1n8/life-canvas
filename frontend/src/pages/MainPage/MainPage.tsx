@@ -1,10 +1,12 @@
+import { Deadlines } from '../../modules/Deadlines';
 import { FocusToday } from '../../modules/FocusToday';
 import './MainPage.css'
 
 function MainPage() {
     return ( 
         <main className="main-page">
-            <FocusToday></FocusToday>
+            <Deadlines/>
+            <FocusToday/>
         </main>
      );
 }

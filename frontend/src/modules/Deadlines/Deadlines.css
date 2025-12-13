@@ -1,0 +1,21 @@
+.deadlines{
+    margin-bottom: 40px;
+}
+
+.deadlines-list{
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+    grid-auto-flow: column;
+    gap: 10px;
+}
+
+.deadlines-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+.deadlines-title{
+    padding-left: 25px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}

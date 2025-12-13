@@ -27,8 +27,8 @@ function FocusToday() {
         datasets: [
             {
                 data: [totalCompletedTasks, totalTasks - totalCompletedTasks],
-                backgroundColor: ["blue", 'black'],
-                borderWidth: 1
+                backgroundColor: ["#006EFF", 'black'],
+                borderWidth: 0
             },
         ],
     };
