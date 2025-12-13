@@ -1,4 +1,4 @@
-import FocusToday from '../../modules/FocusToday/FocusToday';
+import { FocusToday } from '../../modules/FocusToday';
 import './MainPage.css'
 
 function MainPage() {

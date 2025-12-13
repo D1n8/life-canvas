@@ -18,3 +18,7 @@ body{
 .blue {
   color: var(--main-blue);
 }
+
+ul{
+  list-style: none;
+}

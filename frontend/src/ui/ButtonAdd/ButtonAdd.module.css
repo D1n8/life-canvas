@@ -1,0 +1,13 @@
+.btnAdd{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: black;
+    border: 1px solid var(--main-blue);
+    border-radius: 4px;
+    background-color: var(--main-blue);
+    font-size: 17px;
+    font-weight: bold;
+}

@@ -1,5 +1,20 @@
-.focus-today{
+.focus-today {
+    display: flex;
     padding: 25px;
+    gap: 25px;
     border: 1px solid var(--main-gray);
     border-radius: 10px;
+}
+
+.focus-today-diagramm {
+    flex: 1;
+    /* width: 200px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.focus-today-diagramm-container {
+    width: 150px;
+    height: 150px;
 }

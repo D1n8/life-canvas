@@ -1,3 +1,21 @@
+.focus-list{
+    flex: 1;
+    max-width: 420px;
+}
+
+.focus-list-top{
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.focus-list-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .focus-list-title{
     font-size: 24px;
 }
