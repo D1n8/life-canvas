@@ -1,0 +1,7 @@
+.myInput{
+    padding: 5px;
+    background-color: black;
+    border: 1px solid var(--main-gray);
+    color: var(--main-gray);
+    border-radius: 5px;
+}

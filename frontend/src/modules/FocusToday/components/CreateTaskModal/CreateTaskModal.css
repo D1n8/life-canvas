@@ -1,7 +1,16 @@
 .create-task-modal{
+    width: 400px;
+}
 
+.create-task-input{
+    width: 250px;
 }
 
 .create-task-modal-title{
     margin-bottom: 20px;
+}
+
+.create-task-modal-container{
+    display: flex;
+    justify-content: space-between;
 }

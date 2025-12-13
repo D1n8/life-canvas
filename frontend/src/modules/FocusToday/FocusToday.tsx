@@ -3,7 +3,7 @@ import FocusList from './components/FocusList/FocusList';
 import './FocusToday.css'
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import CreateTaskModal from './components/CreateTaskModal/CreatetaskModal';
+import CreateTaskModal from './components/CreateTaskModal/CreateTaskModal';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
