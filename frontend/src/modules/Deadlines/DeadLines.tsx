@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
-import TextBox from '../../ui/TextBox/TextBox';
 import './Deadlines.css'
+import DeadlinesList from './components/DealinesList/DeadlinesList';
 
 function Deadlines() {
     const [list, setList] = useState([
@@ -15,13 +15,7 @@ function Deadlines() {
     return ( 
         <div className="deadlines">
             <h2 className='deadlines-title'>Ближайшие <span className='blue'>дедлайны</span></h2>
-            <ul className="deadlines-list">
-                { list.map(item => 
-                <TextBox className='deadlines-item'>
-                    <span>{item.title}</span>
-                    <span className='blue'>{item.due_date}</span>
-                </TextBox>)}
-            </ul>
+            <DeadlinesList list={list}/>
         </div>
      );
 }

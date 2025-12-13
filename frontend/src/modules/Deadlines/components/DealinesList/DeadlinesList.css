@@ -1,0 +1,11 @@
+.deadlines-list{
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+    grid-auto-flow: column;
+    gap: 10px;
+}
+
+.deadlines-item{
+    display: flex;
+    justify-content: space-between;
+}
