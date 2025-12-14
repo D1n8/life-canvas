@@ -24,12 +24,12 @@ function FocusToday() {
         setList(filteredList)
     }
 
-    const completeTask = (id: number) => {
+    const setCompleteTask = (id: number, isComplete: boolean) => {
         const taskIndex = list.findIndex(item => item.id === id)
         const copyList = structuredClone(list)
-        copyList[taskIndex].isCompleted = true;
+        copyList[taskIndex].isCompleted = isComplete;
         setList(copyList)
-    }
+    } 
 
     // diagramm   
     const totalTasks = list.length
@@ -49,7 +49,7 @@ function FocusToday() {
         <div className='focus-today'>
             <FocusList 
                 list={list}
-                completeTask={completeTask}
+                setCompleteTask={setCompleteTask}
                 deleteTask={deleteTask} 
                 openModal={() => setIsModalOpenCreate(true)} />
             <div className='focus-today-diagramm'>

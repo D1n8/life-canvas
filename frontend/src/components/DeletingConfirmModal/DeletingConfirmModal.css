@@ -1,0 +1,14 @@
+.del-conf-modal .title{
+    margin-bottom: 20px;
+}
+
+.del-conf-modal .btns-container{
+    display: flex;
+    justify-self: end;
+    gap: 10px;
+}
+
+.del-conf-modal .btn-del{
+    background-color: red;
+    border-color: white;
+}
