@@ -1,7 +1,6 @@
 .menu {
     position: relative;
     width: max-content;
-    padding: 10px;
     border: 1px solid var(--main-gray);
     background-color: black;
 }

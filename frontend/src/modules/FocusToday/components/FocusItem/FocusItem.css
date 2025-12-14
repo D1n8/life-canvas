@@ -12,3 +12,29 @@
 .focus-item-text{
     width: max-content;
 }
+
+.focus-item .menu-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.focus-item .menu-btn{
+    padding: 7px 10px ;
+    background-color: black;
+    color: var(--main-gray);
+    border: none;
+    cursor: pointer;
+}
+
+.focus-item .menu-btn:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.focus-item .menu-btn:not(:last-child){
+    border-bottom: 1px solid var(--main-gray);
+}
+
+.focus-item.isCompleted{
+    background-color: rgba(175, 255, 175, 0.151);
+    border-color: rgb(0, 179, 0);
+}

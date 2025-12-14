@@ -6,7 +6,13 @@ import './FocusItem.css'
 import { useRef, useState } from 'react';
 import Menu from '../../../../ui/Menu/Menu';
 
-function FocusItem(item: IFocusItem) {
+interface IFocusItemProps {
+    item: IFocusItem,
+    completeTask: (id: number) => void,
+    deleteTask: (id: number) => void
+}
+
+function FocusItem({item, completeTask, deleteTask}: IFocusItemProps) {
     const [isOpenMenu, setIsOpenMenu] = useState(false)
     const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 })
     const moreRef = useRef<SVGSVGElement>(null)
@@ -19,11 +25,32 @@ function FocusItem(item: IFocusItem) {
         }
     };
 
+    const handleDeleteTask = (id: number) => {
+        deleteTask(id)
+        setIsOpenMenu(false)
+    }
+
     return (
-        <TextBox className='focus-item'>
+        <TextBox className={`focus-item${item.isCompleted ? ' isCompleted' : ''}`}>
             <span className='focus-item-text'>{item.title}</span>
             <MoreVert ref={moreRef} setOpen={() => { handleOpen() }} />
-            <Menu style={{ top: menuPosition.top + 5, left: menuPosition.left }} className='focus-item-more-menu' isOpen={isOpenMenu} onClose={() => setIsOpenMenu(false)}>menu</Menu>
+            <Menu 
+                style={{ top: menuPosition.top - 42, left: menuPosition.left + 40 }} 
+                className='focus-item-more-menu' 
+                isOpen={isOpenMenu} 
+                onClose={() => setIsOpenMenu(false)}>
+                    <div className="menu-container">
+                        <button 
+                            className="menu-btn"
+                            onClick={() => completeTask(item.id)}
+                            >Завершить</button>
+                        <button className='menu-btn'>Подробнее</button>
+                        <button 
+                            className='menu-btn'
+                            onClick={() => handleDeleteTask(item.id)}
+                            >Удалить</button>
+                    </div>
+            </Menu>
         </TextBox>
     );
 }

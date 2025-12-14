@@ -8,10 +8,12 @@ import type { IFocusItem } from '../../types/models';
 
 interface IFocusListProps {
     list: IFocusItem[],
+    deleteTask: (id: number) => void,
+    completeTask: (id: number) => void,
     openModal: () => void
 }
 
-function FocusList({ list, openModal }: IFocusListProps) {
+function FocusList({ list, openModal, completeTask, deleteTask }: IFocusListProps) {
     return (
         <div className="focus-list">
             <div className="focus-list-top">
@@ -21,7 +23,7 @@ function FocusList({ list, openModal }: IFocusListProps) {
 
             <ul className='focus-list-container'>
                 {list.map(item =>
-                    <FocusItem {...item}/>
+                    <FocusItem completeTask={completeTask} deleteTask={deleteTask} item={item}/>
                 )}
             </ul>
         </div>
