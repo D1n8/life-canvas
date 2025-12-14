@@ -2,6 +2,12 @@
     margin-bottom: 40px;
 }
 
+.deadlines-top{
+    display: flex;
+    max-width: 420px;
+    gap: 20px;
+}
+
 .deadlines-title{
     padding-left: 25px;
     margin-bottom: 15px;
