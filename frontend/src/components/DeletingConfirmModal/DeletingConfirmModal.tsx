@@ -15,7 +15,7 @@ function DeletingConfirmModal({isOpen, onClose, onDelete}: IDeletingConfirmModal
             <div className="del-conf-modal">
                 <h3 className='title'>Вы точно хотите удалить?</h3>
                 <div className="btns-container">
-                    <MyButton className='btn-del' onClick={() => onDelete()}>Удалить</MyButton>
+                    <MyButton className='btn-del' onClick={onDelete}>Удалить</MyButton>
                     <MyButton className='btn-cancel' onClick={onClose}>Отмена</MyButton>
                 </div>
             </div>
