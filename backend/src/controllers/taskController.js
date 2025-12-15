@@ -1,44 +1,104 @@
 const taskModel = require('../models/taskModel');
+const { mapTaskDto, CreateTaskDto, UpdateTaskDto } = require('../dto/task.dto');
 
-const getDashboardData = async (req, res) => {
-    try {
-        const focus = await taskModel.getFocusTasks();
-        const upcoming = await taskModel.getUpcomingTasks();
-        
-        res.json({
-            focusWidget: focus,
-            weeklyPlanWidget: upcoming
-        });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Server error' });
-    }
+/**
+ * Создать задачу
+ */
+exports.createTask = async (req, res) => {
+  try {
+    const taskData = CreateTaskDto(req.body); // Используем DTO для создания
+    const task = await taskModel.createTask(taskData);
+    res.status(201).json(mapTaskDto(task)); // Возвращаем DTO для фронта
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: 'Ошибка создания задачи' });
+  }
 };
 
-const createTask = async (req, res) => {
-    try {
-        const newTask = await taskModel.createTask(req.body);
-        res.status(201).json(newTask);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Could not create task' });
-    }
+/**
+ * Фокус на сегодня
+ */
+exports.getFocusTasks = async (req, res) => {
+  try {
+    const tasks = await taskModel.getFocusTasks();
+    res.json(tasks.map(mapTaskDto)); // Приведение к API shape
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: 'Ошибка получения фокуса' });
+  }
 };
 
-const toggleComplete = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const { is_completed } = req.body;
-        const updated = await taskModel.updateTaskStatus(id, is_completed);
-        res.json(updated);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Could not update task' });
-    }
+/**
+ * Задачи с дедлайном
+ */
+exports.getDeadlineTasks = async (req, res) => {
+  try {
+    const tasks = await taskModel.getDeadlineTasks();
+    res.json(tasks.map(mapTaskDto));
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: 'Ошибка получения дедлайнов' });
+  }
 };
 
-module.exports = {
-    getDashboardData,
-    createTask,
-    toggleComplete
+/**
+ * План на неделю
+ */
+exports.getWeekTasks = async (req, res) => {
+  try {
+    const week = await taskModel.getWeekTasks();
+    // week = { "2025-06-15": [task, task], ... }
+    const mappedWeek = {};
+    for (const day in week) {
+      mappedWeek[day] = week[day].map(mapTaskDto);
+    }
+    res.json(mappedWeek);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: 'Ошибка получения плана на неделю' });
+  }
+};
+
+/**
+ * Обновить задачу (универсально)
+ */
+exports.updateTask = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updateData = UpdateTaskDto(req.body); // Используем DTO
+    const task = await taskModel.updateTask(id, updateData);
+    res.json(mapTaskDto(task));
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: 'Ошибка обновления задачи' });
+  }
+};
+
+/**
+ * Завершить / вернуть
+ */
+exports.toggleComplete = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { is_completed } = req.body;
+    const task = await taskModel.toggleComplete(id, is_completed);
+    res.json(mapTaskDto(task));
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: 'Ошибка изменения статуса' });
+  }
+};
+
+/**
+ * Удалить
+ */
+exports.deleteTask = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await taskModel.deleteTask(id);
+    res.status(204).end();
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: 'Ошибка удаления задачи' });
+  }
 };
