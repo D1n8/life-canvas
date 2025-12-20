@@ -3,9 +3,11 @@ import type { ITask } from "../../../types/modules";
 import type { ICreateTask } from "../types/modules";
 
 export class FocusService {
+    static readonly API = import.meta.env.VITE_API_URL
     static async getAllFocusItems(): Promise<ITask[]> {
         try {
-            const response = await axios.get('http://localhost:3000/api/tasks/focus')
+            
+            const response = await axios.get(`${this.API}/tasks/focus`)
             return response.data
         } catch (e) {
             console.error(e)
@@ -15,7 +17,7 @@ export class FocusService {
 
     static async completeTask(id: number, isCompleted: boolean) {
         try {
-            const response = await axios.patch(`http://localhost:3000/api/tasks/${id}/complete`,
+            const response = await axios.patch(`${this.API}/tasks/${id}/complete`,
                 {
                     isCompleted
                 }
@@ -28,7 +30,7 @@ export class FocusService {
 
     static async createTask({ title, description = '', dueDate, isFocus = false, parentId, type = 'task'}: ICreateTask) {
         try {
-            const response = await axios.post(`http://localhost:3000/api/tasks/`,
+            const response = await axios.post(`${this.API}/tasks/`,
                 {
                     title: title,
                     description: description,
@@ -38,6 +40,15 @@ export class FocusService {
                     type: type
                 }
             )
+            return response.data
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    static async deleteTask(id: number){
+        try {
+            const response = await axios.delete(`${this.API}/tasks/${id}`)
             return response.data
         } catch (error) {
             console.log(error)

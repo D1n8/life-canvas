@@ -31,13 +31,12 @@ function FocusToday() {
             dueDate: dueDate ? dueDate.toISOString() : undefined
         }
         const response = await FocusService.createTask(newTask)
-        console.log(response)
         setList([...list, response])
     }
 
-    const deleteTask = (id: number) => {
-        const filteredList = list.filter(item => item.id !== id)
-        setList(filteredList)
+    const deleteTask = async (id: number) => {
+        await FocusService.deleteTask(id)
+        setList(prev => prev.filter(task => task.id !== id))
     }
 
     const setCompleteTask = async (id: number, isComplete: boolean) => {
