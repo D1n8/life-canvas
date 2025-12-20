@@ -1,14 +1,10 @@
 import * as React from 'react';
 import TextBox from '../../../../ui/TextBox/TextBox';
 import './DeadlinesList.css'
+import type { ITask } from '../../../../types/modules';
 
-type DeadlinesItem = {
-    id: number,
-    title: string,
-    due_date: string
-}
 interface IDeadlinesListProps {
-    list: DeadlinesItem[]
+    list: ITask[]
 }
 
 function DeadlinesList({ list }: IDeadlinesListProps) {
@@ -17,7 +13,7 @@ function DeadlinesList({ list }: IDeadlinesListProps) {
             {list.map(item =>
                 <TextBox className='deadlines-item'>
                     <span>{item.title}</span>
-                    <span className='blue'>{item.due_date}</span>
+                    <span className='blue'>{item.dueDate}</span>
                 </TextBox>)}
         </ul>
     );

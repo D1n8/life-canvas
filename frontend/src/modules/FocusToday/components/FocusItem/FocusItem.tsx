@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TextBox from '../../../../ui/TextBox/TextBox';
-import type { IFocusItem } from '../../types/models';
+import type { ITask } from '../../../../types/modules';
 import MoreVert from '../../../../ui/MoreVert/MoreVert';
 import './FocusItem.css'
 import { useRef, useState } from 'react';
@@ -8,7 +8,7 @@ import Menu from '../../../../ui/Menu/Menu';
 import DeletingConfirmModal from '../../../../components/DeletingConfirmModal/DeletingConfirmModal';
 
 interface IFocusItemProps {
-    item: IFocusItem,
+    item: ITask,
     setCompleteTask: (id: number, isComplete: boolean) => void,
     deleteTask: (id: number) => void
 }

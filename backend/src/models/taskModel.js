@@ -19,11 +19,11 @@ const getFocusTasks = async () => {
     SELECT *
     FROM tasks
     WHERE is_focus = true
-      AND is_completed = false
     ORDER BY due_date NULLS LAST, id ASC
   `);
   return rows;
 };
+
 
 /**
  * Все задачи с дедлайном
@@ -70,11 +70,11 @@ const getWeekTasks = async () => {
 const createTask = async (task) => {
   const {
     title,
-    description = null,
-    is_focus = false,
-    due_date = null,
-    parent_id = null,
-    type = 'task'
+    description,
+    is_focus,
+    due_date,
+    parent_id,
+    type
   } = task;
 
   const { rows } = await pool.query(`

@@ -2,12 +2,12 @@ import * as React from 'react';
 import './FocusList.css'
 import ButtonAdd from '../../../../ui/ButtonAdd/ButtonAdd';
 import FocusItem from '../FocusItem/FocusItem';
-import type { IFocusItem } from '../../types/models';
+import type { ITask } from '../../../../types/modules';
 
 
 
 interface IFocusListProps {
-    list: IFocusItem[],
+    list: ITask[],
     deleteTask: (id: number) => void,
     setCompleteTask: (id: number, isComplete: boolean) => void
     openModal: () => void
