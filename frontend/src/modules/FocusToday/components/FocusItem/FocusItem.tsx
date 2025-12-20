@@ -1,4 +1,3 @@
-import * as React from 'react';
 import TextBox from '../../../../ui/TextBox/TextBox';
 import type { ITask } from '../../../../types/modules';
 import MoreVert from '../../../../ui/MoreVert/MoreVert';

@@ -11,7 +11,7 @@ function DeadlinesList({ list }: IDeadlinesListProps) {
     return (
         <ul className="deadlines-list">
             {list.map(item =>
-                <TextBox className='deadlines-item'>
+                <TextBox key={item.id} className='deadlines-item'>
                     <span>{item.title}</span>
                     <span className='blue'>{item.dueDate}</span>
                 </TextBox>)}

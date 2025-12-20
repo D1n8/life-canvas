@@ -1,4 +1,3 @@
-import * as React from 'react';
 import './FocusList.css'
 import ButtonAdd from '../../../../ui/ButtonAdd/ButtonAdd';
 import FocusItem from '../FocusItem/FocusItem';
@@ -23,7 +22,7 @@ function FocusList({ list, openModal, setCompleteTask, deleteTask }: IFocusListP
 
             <ul className='focus-list-container'>
                 {list.map(item =>
-                    <FocusItem setCompleteTask={setCompleteTask} deleteTask={deleteTask} item={item}/>
+                    <FocusItem key={item.id} setCompleteTask={setCompleteTask} deleteTask={deleteTask} item={item}/>
                 )}
             </ul>
         </div>
